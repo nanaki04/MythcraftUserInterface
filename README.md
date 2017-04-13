@@ -1,6 +1,6 @@
 # MythcraftUserInterface
 
-**TODO: Add description**
+User interface module for the Mythcraft game
 
 ## Installation
 
