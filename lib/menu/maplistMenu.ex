@@ -8,7 +8,7 @@ defmodule UserInterface.Menu.Maplist do
     {menulist, _nr} = Enum.reduce(
       maplist, 
       {"Select the map you want to play:\n", 1}, 
-      fn(item, {items, nr}) -> {to_string(nr) <> ". " <> item <> "\n", nr + 1}
+      fn(item, {items, nr}) -> {items <> to_string(nr) <> ". " <> item <> "\n", nr + 1} end
     )
 
     input = IO.gets menulist
