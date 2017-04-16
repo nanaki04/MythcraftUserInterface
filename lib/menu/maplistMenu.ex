@@ -20,7 +20,7 @@ defmodule UserInterface.Menu.Maplist do
     show(state)
   end
 
-  defp handle_input(map_index, state) do
+  defp handle_input({map_index, _}, state) do
     cc = state[:controlcenter]
     map = Enum.at(state[:maplist], map_index - 1)
     game_id = cc.call(cc, {:start_map, {map}})
