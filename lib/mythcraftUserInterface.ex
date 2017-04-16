@@ -8,7 +8,7 @@ defmodule UserInterface do
   end
 
   def render_gamestate(state, gamestate_id) do
-    IO.inspect(state[:gamestate].export_gamestate(gamestate_id))
+    IO.inspect(state[:gamestate].export_gamestate(gamestate_id, state))
   end
 
   defp generate_ui_id() do
