@@ -4,7 +4,7 @@ defmodule UserInterface do
     state = state ++ [ui_id: generate_ui_id()]
     {:ok, _pid} = UserInterface.Receiver.start_link state
     UserInterface.Menu.Main.show state
-    {:ok, ui_id}
+    {:ok, state[:ui_id]}
   end
 
   def render_gamestate(state, gamestate_id) do

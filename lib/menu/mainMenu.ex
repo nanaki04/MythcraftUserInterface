@@ -21,7 +21,7 @@ defmodule UserInterface.Menu.Main do
   end
 
   defp handle_input(1, state) do
-    UserInterface.Menu.SelectMap.show(state)
+    UserInterface.Menu.Maplist.show(state)
   end
 
 end
