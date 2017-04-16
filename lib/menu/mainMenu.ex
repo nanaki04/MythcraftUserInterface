@@ -11,7 +11,12 @@ defmodule UserInterface.Menu.Main do
       fn(item, {items, nr}) -> {items <> to_string(nr) <> ". " <> item <> "\n", nr + 1} end
     )
 
-    input = IO.gets menulist
+    get_input = fn
+      menulist, is_debug where (is_debug === true) -> 1
+      menulist, is_debug where (is_debug === false) -> IO.gets(menulist)
+    end
+
+    input = get_input menulist, state[:debug]
     handle_input(Integer.parse(input), state)
   end
 
