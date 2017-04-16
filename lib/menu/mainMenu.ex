@@ -20,7 +20,7 @@ defmodule UserInterface.Menu.Main do
     show(state)
   end
 
-  defp handle_input(1, state) do
+  defp handle_input(nr = 1, state) do
     UserInterface.Menu.Maplist.show(state)
   end
 
