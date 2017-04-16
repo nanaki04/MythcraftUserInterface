@@ -2,7 +2,7 @@ defmodule UserInterface.Menu.Maplist do
 
   def show(state) do
     cc = state[:controlcenter]
-    maplist = cc.call(cc, {:get_maplist})
+    maplist = GenServer.call(cc, {:get_maplist})
     state = state ++ [maplist: maplist]
 
     {menulist, _nr} = Enum.reduce(
@@ -23,7 +23,7 @@ defmodule UserInterface.Menu.Maplist do
   defp handle_input({map_index, _}, state) do
     cc = state[:controlcenter]
     map = Enum.at(state[:maplist], map_index - 1)
-    game_id = cc.call(cc, {:start_map, {map}})
+    game_id = GenServer.call(cc, {:start_map, {map}})
     UserInterface.render_gamestate state, game_id
   end
 
