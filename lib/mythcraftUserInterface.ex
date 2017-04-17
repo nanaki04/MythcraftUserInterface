@@ -3,7 +3,8 @@ defmodule UserInterface do
   def start_link(state) do
     state = state ++ [ui_id: generate_ui_id()]
     {:ok, _pid} = UserInterface.Receiver.start_link state
-    Task.start_link(UserInterface.Menu.Main, :show, [state])
+    UserInterface.Menu.Main.show state
+    # Task.start_link(UserInterface.Menu.Main, :show, [state])
     {:ok, state[:ui_id]}
   end
 
