@@ -12,11 +12,11 @@ defmodule UserInterface.Menu.Maplist do
     )
 
     get_input = fn
-      menulist, is_debug where (is_debug === true) -> 1
-      menulist, is_debug where (is_debug === false) -> IO.gets(menulist)
+      menulist, debug_mode when(debug_mode === true) -> 1
+      menulist, debug_mode when(debug_mode === false) -> IO.gets(menulist)
     end
 
-    input = get_input menulist, state[:debug]
+    input = get_input.(menulist, state[:debug])
 
     handle_input(Integer.parse(input), state)
   end
