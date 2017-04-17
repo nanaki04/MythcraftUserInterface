@@ -12,7 +12,7 @@ defmodule UserInterface.Menu.Main do
     )
 
     get_input = fn
-      menulist, debug_mode when(debug_mode === true) -> 1
+      menulist, debug_mode when(debug_mode === true) -> "1"
       menulist, debug_mode when(debug_mode === false) -> IO.gets(menulist)
     end
 
