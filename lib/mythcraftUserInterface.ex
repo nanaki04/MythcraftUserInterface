@@ -1,7 +1,7 @@
 defmodule UserInterface do
 
   def start_link(state) do
-    state = state ++ [ui_id: generate_ui_id()]
+    state = Map.put(state, :ui_id, generate_ui_id())
     {:ok, ui_pid} = UserInterface.Receiver.start_link state
     UserInterface.Menu.Main.show state
     {:ok, ui_pid}

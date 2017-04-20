@@ -3,7 +3,7 @@ defmodule UserInterface.Menu.Maplist do
   def show(state) do
     cc = state[:controlcenter]
     maplist = GenServer.call(cc, {:get_maplist})
-    state = state ++ [maplist: maplist]
+    state = Map.put(state, :maplist, maplist)
 
     {menulist, _nr} = Enum.reduce(
       maplist, 
